@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/CSS/style.css">
+    <title>WEATHER APP</title>
+</head>
+
+<body>
+    <div class="container">
+        <div id="cityWeatherBox" class="weatherbox">
+            <h1>YOUR CITYS WEATHER</h1>
+            <p id="currentDate"></p>
+            <p>SEARCH YOUR CITY TO SEE THE WEATHER!</p>
+            <form>
+                <input id="currentWeatherInput" type="text">
+                <button id="currentWeatherBtn">GO</button>
+            </form>
+            <h2 id="cityName"></h2>
+            <p id="cityTemp"></p>
+            <p id="cityHumidity"></p>
+            <p id="cityWindSpeed"></p>
+        </div>
+        <div id="fiveDayForecast">
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="assets/JAVASCRIPT/script.js"></script>
+</body>
+
+</html>
