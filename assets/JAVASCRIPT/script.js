@@ -26,7 +26,6 @@ function currentWeather(event) {
         fetch(query2URL).then(function (resObject) {
             return resObject.json();
         }).then(function (data) {
-            console.log(data)
             // WRITE WEATHER DATA TO PAGE
             // CITY
             var cityNameH2El = document.getElementById('cityName');
@@ -59,7 +58,6 @@ function fiveDayForecast(lat, lon, city) {
     fetch(queryURL).then(function (resObject) {
         return resObject.json();
     }).then(function (data) {
-        console.log(data);
         // WRITE FIVE DAY FORECAST TO PAGE
         var FDFHeadLine = document.getElementById('FDFHeadLine');
         FDFHeadLine.innerText = `${city} FIVE DAY FORECAST`;
