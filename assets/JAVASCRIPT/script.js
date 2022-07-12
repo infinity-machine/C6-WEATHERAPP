@@ -13,7 +13,7 @@ function currentWeather(event) {
     event.preventDefault();
     var currentWeatherInputEl = document.getElementById('currentWeatherInput');
     var city = currentWeatherInputEl.value;
-    var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${APIKey}`;
+    var queryURL = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${APIKey}`;
     // FETCH CITY LAT & LON FOR SUBSEQUENT FETCHES
     fetch(queryURL).then(function (resObject) {
         return resObject.json();
@@ -22,7 +22,7 @@ function currentWeather(event) {
         var lon = data.coord.lon;
         var cityName = city;
         // FETCH WEATHER DATA
-        var query2URL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${APIKey}`;
+        var query2URL = `http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${APIKey}`;
         fetch(query2URL).then(function (resObject) {
             return resObject.json();
         }).then(function (data) {
@@ -55,7 +55,7 @@ function currentWeather(event) {
     });
 }
 function fiveDayForecast(lat, lon, city) {
-    var queryURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${APIKey}`;
+    var queryURL = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${APIKey}`;
     fetch(queryURL).then(function (resObject) {
         return resObject.json();
     }).then(function (data) {
