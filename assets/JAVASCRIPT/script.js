@@ -13,7 +13,7 @@ function currentWeather(event) {
     event.preventDefault();
     var currentWeatherInputEl = document.getElementById('currentWeatherInput');
     var city = currentWeatherInputEl.value;
-    var queryURL = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${APIKey}`;
+    var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${APIKey}`;
     // FETCH CITY LAT & LON FOR SUBSEQUENT FETCHES
     fetch(queryURL).then(function (resObject) {
         return resObject.json();
@@ -55,7 +55,7 @@ function currentWeather(event) {
     });
 }
 function fiveDayForecast(lat, lon, city) {
-    var queryURL = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${APIKey}`;
+    var queryURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${APIKey}`;
     fetch(queryURL).then(function (resObject) {
         return resObject.json();
     }).then(function (data) {
