@@ -47,7 +47,7 @@ function currentWeather(event) {
             var icon = data.current.weather[0].icon;
             var alt = data.current.weather[0].description;
             var iconImg = document.getElementById('iconImg');
-            iconImg.setAttribute('src', `http://openweathermap.org/img/wn/${icon}@2x.png`);
+            iconImg.setAttribute('src', `https://openweathermap.org/img/wn/${icon}@2x.png`);
             iconImg.setAttribute('alt', `${alt}`)
             // GET FIVE DAY FORECAST
             fiveDayForecast(lat, lon, city);
@@ -79,7 +79,7 @@ function fiveDayForecast(lat, lon, city) {
             var icon = data.list[i].weather[0].icon;
             var alt = data.list[i].weather[0].description;
             var FDFIcon = document.querySelector(`.FDFIcon-${i}`);
-            FDFIcon.setAttribute('src', `http://openweathermap.org/img/wn/${icon}@2x.png`);
+            FDFIcon.setAttribute('src', `https://openweathermap.org/img/wn/${icon}@2x.png`);
             FDFIcon.setAttribute('alt', `${alt}`);
         }
     })
