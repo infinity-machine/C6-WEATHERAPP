@@ -22,8 +22,8 @@ function currentWeather(event) {
         var lon = data.coord.lon;
         var cityName = city;
         // FETCH WEATHER DATA
-        var query2URL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${APIKey}`;
-        fetch(query2URL).then(function (resObject) {
+        var queryURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${APIKey}`;
+        fetch(queryURL).then(function (resObject) {
             return resObject.json();
         }).then(function (data) {
             // WRITE WEATHER DATA TO PAGE
