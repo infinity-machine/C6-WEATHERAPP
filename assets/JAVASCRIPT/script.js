@@ -14,7 +14,7 @@ function currentWeather(event) {
     var currentWeatherInputEl = document.getElementById('currentWeatherInput');
     var city = currentWeatherInputEl.value;
     var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${APIKey}`;
-    // FETCH CITY LAT & LON FOR SUBSEQUENT FETCHES
+    // FETCH CITY LAT & LON FOR SUBSEQUENT FETCHY BOIS
     fetch(queryURL).then(function (resObject) {
         return resObject.json();
     }).then(function (data) {
@@ -26,13 +26,17 @@ function currentWeather(event) {
         fetch(queryURL).then(function (resObject) {
             return resObject.json();
         }).then(function (data) {
+            console.log(data)
             // WRITE WEATHER DATA TO PAGE
-            // CITY
-            var cityNameH2El = document.getElementById('cityName');
-            cityNameH2El.innerText = cityName;
+            // CITY & SAVE BTN
+            document.getElementById('cityName').innerText = cityName;
+            document.getElementById('saveLocation').innerText = 'SAVE LOCATION';
             // TEMP
             var cityTemp = data.current.temp;
             document.getElementById('cityTemp').innerText = `TEMPERATURE: ${cityTemp}`;
+            // FEELS LIKE
+            var feelsLike = data.current.feels_like;
+            document.getElementById('feelsLike').innerText = `FEELS LIKE: ${feelsLike}`
             // HUMIDITY
             var cityHumidity = data.current.humidity;
             document.getElementById('cityHumidity').innerText = `HUMIDITY: ${cityHumidity}`;
@@ -41,7 +45,12 @@ function currentWeather(event) {
             document.getElementById('cityWindSpeed').innerText = `WINDSPEED: ${cityWindSpeed}`;
             // UVI
             var cityUVI = data.current.uvi;
-            document.getElementById('cityUVI').innerText = `UV INDEX: ${cityUVI}`;
+            cityUVIEl = document.getElementById('cityUVI')
+            cityUVIEl.innerText = `UV INDEX: ${cityUVI}`;
+            if (cityUVI < 3) cityUVIEl.style.color = 'green';
+            if (cityUVI >= 3 && cityUVI < 5.5) cityUVIEl.style.color = 'yellow';
+            if (cityUVI >= 5.5 && cityUVI < 7) cityUVIEl.style.color = 'orange';
+            if (cityUVI >= 8) cityUVIEl.style.color = 'red';
             // ICON
             var icon = data.current.weather[0].icon;
             var alt = data.current.weather[0].description;
@@ -53,6 +62,8 @@ function currentWeather(event) {
         });
     });
 }
+console.log(data)
+// FIVE DAY FORECAST
 function fiveDayForecast(lat, lon, city) {
     var queryURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${APIKey}`;
     fetch(queryURL).then(function (resObject) {
@@ -64,6 +75,7 @@ function fiveDayForecast(lat, lon, city) {
         for (i = 1; i < 6; i++) {
             // DAYS
             document.querySelector(`.FDFDay-${i}`).innerText = moment().add(i, 'days').format('dddd');
+            document.querySelector(`.FDFDay-1`).innerText = 'Tommorrow'
             // TEMPS
             var FDFTemp = data.list[i].main.temp;
             document.querySelector(`.FDFTemp-${i}`).innerText = `TEMPERATURE: ${FDFTemp}`;
@@ -82,3 +94,4 @@ function fiveDayForecast(lat, lon, city) {
         }
     })
 }
+

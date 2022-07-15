@@ -5,67 +5,88 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="assets/CSS/style.css">
     <title>WEATHERBOT</title>
 </head>
 
 <body>
+    <header>
+        <div class="top-bar">
+            <ul>
+                <li id="logo">WEATHERBOT</li>
+                <li>options</li>
+                <li>
+                    <div class="dropdown">
+                        <span>saved locations</span>
+                        <div class="dropdown-content">
+                            <p></p>
+                            <p></p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+
+
+
     <div class="container">
-        <div class="row">
-            <header>
-                <h1>WEATHERBOT</h1>
-                <p id="currentDate"></p>
-                <p>SEARCH YOUR CITY TO SEE THE WEATHER!</p>
+        <div class="topHalf">
+            <div class="introduction">
+                <h1 id="currentDate"></h1>
+                <p id="initialP">SEARCH YOUR CITY TO SEE THE WEATHER!</p>
                 <form>
                     <input id="currentWeatherInput" type="text">
                     <button id="currentWeatherBtn">GO</button>
                 </form>
-            </header>
-            <div class="row">
+            </div>
+            <div class="currentWeather">
                 <div class="col s8">
                     <h2 id="cityName"></h2>
+                    <button id="saveLocation"></button>
                     <p id="cityTemp"></p>
+                    <p id="feelsLike"></p>
                     <p id="cityHumidity"></p>
                     <p id="cityWindSpeed"></p>
                     <p id="cityUVI"></p>
                 </div>
-                <div class="col s4">
-                    <img id ="iconImg" src="" alt="">
+                <div class="currentIcon">
+                    <img id="iconImg" src="" alt="">
                 </div>
             </div>
         </div>
-        <div id="fiveDayForecast" class="row">
+        <div id="fiveDayForecast" class="bottomHalf">
             <h2 id="FDFHeadLine"></h2>
-            <div class="col s2.4 weatherbox">
+            <div class="weatherBox">
                 <h3 class="FDFDay-1"></h3>
                 <p class="FDFTemp-1"></p>
                 <p class="FDFHumidity-1"></p>
                 <p class="FDFWindSpeed-1"></p>
                 <img class="FDFIcon-1" src="" alt="">
             </div>
-            <div class="col s2.4 weatherbox">
+            <div class="weatherBox">
                 <h3 class="FDFDay-2"></h3>
                 <p class="FDFTemp-2"></p>
                 <p class="FDFHumidity-2"></p>
                 <p class="FDFWindSpeed-2"></p>
                 <img class="FDFIcon-2" src="" alt="">
             </div>
-            <div class="col s2.4 weatherbox">
+            <div class="weatherBox">
                 <h3 class="FDFDay-3"></h3>
                 <p class="FDFTemp-3"></p>
                 <p class="FDFHumidity-3"></p>
                 <p class="FDFWindSpeed-3"></p>
                 <img class="FDFIcon-3" src="" alt="">
             </div>
-            <div class="col s2.4 weatherbox">
+            <div class="weatherBox">
                 <h3 class="FDFDay-4"></h3>
                 <p class="FDFTemp-4"></p>
                 <p class="FDFHumidity-4"></p>
                 <p class="FDFWindSpeed-4"></p>
                 <img class="FDFIcon-4" src="" alt="">
             </div>
-            <div class="col s2.4 weatherbox">
+            <div class="weatherBox">
                 <h3 class="FDFDay-5"></h3>
                 <p class="FDFTemp-5"></p>
                 <p class="FDFHumidity-5"></p>
@@ -74,8 +95,9 @@
             </div>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="assets/JAVASCRIPT/script.js"></script>
 </body>
 
