@@ -1,10 +1,11 @@
 const { Schema, SchemaTypes, model } = require('mongoose');
+const savedLocSchema = require('../models')
 const bcrypt = require('bcrypt');
 
 const userSchema = new Schema({
     email: {
         type: String,
-        required: [true, 'YOU MUST PROVIDE AN EMAIL ADRESS'],
+        required: [true, 'YOU MUST PROVIDE AN EMAIL ADDRESS'],
         unique: true,
         match: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/i
     },
@@ -12,7 +13,11 @@ const userSchema = new Schema({
     password: {
         type: String,
         required: true
-    }
+    },
+    // locations: {
+    //     type: [savedLocSchema],
+    //     default: undefined
+    // }
 });
 
 userSchema.pre('save', async function () {

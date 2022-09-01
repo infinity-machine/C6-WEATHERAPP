@@ -4,9 +4,12 @@ const { signToken } = require('../auth');
 
 const resolvers = {
     Query: {
-        async getUsers(_, args, context) {
-            if (!context.user) throw new ApolloError('NOT AUTHORIZED!', 402);
+        // async getUsers(_, args, context) {
+        //     if (!context.user) throw new ApolloError('NOT AUTHORIZED!', 402);
 
+        //     return await User.find();
+        // },
+        async getUsers(_, args) {
             return await User.find();
         }
     },

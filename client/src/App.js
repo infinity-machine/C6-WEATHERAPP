@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import LogInForm from './components/LogInForm'
 import ForecastNow from './components/ForecastNow'
 import Forecast7Day from './components/Forecast7Day'
 const apiKey = 'd9d0ad9620511c5bd3f33272690f52d7'
@@ -32,6 +33,7 @@ function App() {
 
   return (
     <div className="App">
+      <LogInForm />
       <h1>WEATHERBOI</h1>
       <form onSubmit={handleLocSubmit}>
         <input onChange={handleInputChange} value={locInput} type="text" placeholder="LOCATION"></input>
