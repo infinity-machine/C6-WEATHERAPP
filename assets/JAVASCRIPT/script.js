@@ -20,7 +20,6 @@ function currentWeather(event) {
     }).then(function (data) {
         var lat = data.coord.lat;
         var lon = data.coord.lon;
-        var cityName = city;
         // FETCH WEATHER DATA
         var queryURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${APIKey}`;
         fetch(queryURL).then(function (resObject) {
@@ -29,7 +28,7 @@ function currentWeather(event) {
             console.log(data)
             // WRITE WEATHER DATA TO PAGE
             // CITY & SAVE BTN
-            document.getElementById('cityName').innerText = cityName;
+            document.getElementById('cityName').innerText = city;
             document.getElementById('saveLocation').innerText = 'SAVE LOCATION';
             // TEMP
             var cityTemp = data.current.temp;
@@ -45,7 +44,7 @@ function currentWeather(event) {
             document.getElementById('cityWindSpeed').innerText = `WINDSPEED: ${cityWindSpeed}`;
             // UVI
             var cityUVI = data.current.uvi;
-            cityUVIEl = document.getElementById('cityUVI')
+            var cityUVIEl = document.getElementById('cityUVI')
             cityUVIEl.innerText = `UV INDEX: ${cityUVI}`;
             if (cityUVI < 3) cityUVIEl.style.color = 'green';
             if (cityUVI >= 3 && cityUVI < 5.5) cityUVIEl.style.color = 'yellow';
@@ -57,12 +56,18 @@ function currentWeather(event) {
             var iconImg = document.getElementById('iconImg');
             iconImg.setAttribute('src', `https://openweathermap.org/img/wn/${icon}@2x.png`);
             iconImg.setAttribute('alt', `${alt}`)
+            // SAVE LOCATION
+            // var saveLocationBtn = document.getElementById('saveLocation');
+            // saveLocationBtn.addEventListener('click', saveLocation);
+            //     function saveLocation() {
+            //         }
+            //     }
             // GET FIVE DAY FORECAST
             fiveDayForecast(lat, lon, city);
         });
     });
 }
-console.log(data)
+
 // FIVE DAY FORECAST
 function fiveDayForecast(lat, lon, city) {
     var queryURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${APIKey}`;
