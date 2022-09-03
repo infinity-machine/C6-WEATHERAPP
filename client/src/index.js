@@ -6,6 +6,7 @@ import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink, ApolloLink
 import { setContext } from '@apollo/client/link/context';
 import { onError } from '@apollo/client/link/error';
 import App from './App';
+import { StoreProvider } from './store'
 
 const errorLink = onError(({ graphQLErrors, networkError }) => {
   if (graphQLErrors)
@@ -42,10 +43,12 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
-    <Router>
-      <App />
-    </Router>
-  </ApolloProvider>
+      <StoreProvider>
+        <Router>
+          <App />
+        </Router>
+      </StoreProvider>
+    </ApolloProvider>
   </React.StrictMode>
 );
 

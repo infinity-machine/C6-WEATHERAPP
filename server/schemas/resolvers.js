@@ -11,6 +11,10 @@ const resolvers = {
         // },
         async getUsers(_, args) {
             return await User.find();
+        },
+        async me(_, args, context) {
+            if (context.user) {console.log(context.user)}
+            return await User.find({})
         }
     },
 
