@@ -1,76 +1,46 @@
 import { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { useNavigate } from 'react-router-dom';
-import { ADD_USER, LOGIN_USER } from '../utils/mutations';
+import { ADD_USER } from '../utils/mutations';
 
-function TodoForm(props) {
+function Register() {
   const [formInput, setFormInput] = useState({
     email: '',
     password: '',
-    type: 'login'
   });
+
   const [addUser] = useMutation(ADD_USER, {
-    variables: formInput
-  });
-  const [loginUser] = useMutation(LOGIN_USER, {
     variables: formInput
   });
 
   const navigate = useNavigate();
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    let user, token;
-    let mutation = formInput.type === 'register' ? addUser : loginUser;
-    let type = formInput.type === 'register' ? 'addUser' : 'loginUser';
-
+    const mutation = addUser
     const { data } = await mutation();
-
-    user = data[type].user;
-    token = data[type].token;
-
+    let token = data.addUser.token
     localStorage.setItem('token', token);
-    props.setUser(user);
-
-    navigate('/');
-  };
+    navigate('/')
+  }
 
   const handleInputChange = (e) => {
     setFormInput({
       ...formInput,
       [e.target.name]: e.target.value
-    })
+    });
   }
 
+
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>{formInput.type[0].toUpperCase() + formInput.type.slice(1)}</h1>
-      <input
-        name="email"
-        value={formInput.email}
-        onChange={handleInputChange}
-        type="email"
-        placeholder="Enter your email address" />
-      <input
-        name="password"
-        value={formInput.password}
-        onChange={handleInputChange}
-        type="password"
-        placeholder="Enter your password" />
-      <div>
-        <label htmlFor="login">
-          Login
-          <input checked={formInput.type === 'login'} onChange={handleInputChange} name="type" id="login" type="radio" value="login" />
-        </label>
-        <label htmlFor="register">
-          Register
-          <input checked={formInput.type === 'register'} onChange={handleInputChange} name="type" id="register" type="radio" value="register" />
-        </label>
-      </div>
-      <button>Submit</button>
-    </form>
+    <div>
+      <h1>CREATE AN ACOUNT</h1>
+      <form onSubmit={handleSubmit}>
+        <input onChange={handleInputChange} name="email" type="email" placeholder="email"></input>
+        <input onChange={handleInputChange} name="password" type="password" placeholder="password"></input>
+        <button>CREATE ACCOUNT</button>
+      </form>
+    </div>
   )
 }
 
-export default TodoForm;
+export default Register;

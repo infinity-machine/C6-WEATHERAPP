@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import './index.css';
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink, ApolloLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { onError } from '@apollo/client/link/error';
 import App from './App';
 import { StoreProvider } from './store'
+import Register from './pages/Register'
+import Test from './pages/Test'
 
 const errorLink = onError(({ graphQLErrors, networkError }) => {
   if (graphQLErrors)
@@ -44,9 +46,13 @@ root.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
       <StoreProvider>
-        <Router>
-          <App />
-        </Router>
+        <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<App/>}></Route>
+          <Route path="/register" element={< Register/>}></Route>
+          <Route path="/test" element={< Test />}></Route>
+          </Routes>
+        </BrowserRouter>
       </StoreProvider>
     </ApolloProvider>
   </React.StrictMode>

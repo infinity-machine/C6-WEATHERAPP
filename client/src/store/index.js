@@ -5,8 +5,7 @@ const StoreContext = createContext();
 export function StoreProvider(props) {
   const [state, setState] = useState({
     user: {
-      username: 'connor',
-      email: 'connor@test.com'
+      email: 'yes'
     }});
 
   return (

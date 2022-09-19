@@ -13,14 +13,11 @@ module.exports = {
         if (!token.includes('Verify')) {
             throw new ApolloError('INVALID TOKEN');
         }
-
         token = token.split(' ').pop().trim();
-        // console.log(token)
         try {
             const { data } = jwt.decode(token, JWT_SECRET, {
                 maxAge: '6h'
             });
-            // console.log(data)
             req.user = data;
             return req;
         } catch (err) {

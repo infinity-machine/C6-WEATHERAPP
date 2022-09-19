@@ -30,11 +30,11 @@ const resolvers = {
             }
         },
         async loginUser(_, { email, password }, context) {
-            const user = await User.findOne({ email });
+            const user = await User.findOne({ email});
 
             if (!user) throw new ApolloError('NO USER FOUND WITH THAT EMAIL');
 
-            if (user.validatePass(password)) throw new ApolloError('YOUR PASSWORD IS INCORRECT');
+            if (!user.validatePass(password)) throw new ApolloError('YOUR PASSWORD IS INCORRECT');
 
             try {
                 const token = signToken(user);
