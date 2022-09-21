@@ -3,26 +3,30 @@ import { useState, useEffect } from 'react';
 
 const Forecast7Day = (props) => {
     const [weatherData, setWeatherData] = useState([])
+    // const [iconURL, setIconURL] = useState('')
 
-    const renderData = (data) => {
-        // for (let i = 1; i < 8; i++) {
-        //     return `
-        //     <div>{${data[i].temp}}<div>`
-        // }
-    }
     const fetchWeather = () => {
         fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${props.lat}&lon=${props.lon}&units=imperial&appid=${props.apiKey}`)
             .then(res => res.json())
             .then(data => {
-                console.log(data.daily)
                 setWeatherData(data.daily);
             });
     }
 
     useEffect(fetchWeather, [props.lat, props.lon]);
     return (
-        <div id="div">
-            {weatherData ? renderData(weatherData) : <></>}
+        <div>
+            {weatherData ? weatherData.map((data, index) => {
+                return <div key={index}>
+                    <div>
+                        <p>TEMPERATURE - MIN: {data.temp.min} MAX: {data.temp.max}</p>
+                        <p>HUMIDITY: {data.humidity}</p>
+                        <p>WINDSPEED: {data.wind_speed}</p>
+                        <p>UV INDEX: {data.uvi}</p>
+                    </div>
+                    <img src={`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`} alt="daily weather conditions"></img>
+                </div>
+            }) : <></>}
         </div>
     )
 }

@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 
 const ForecastNow = (props) => {
   const [weatherData, setWeatherData] = useState([]);
-  // FIX THIS!!!!
   const [iconURL, setIconURL] = useState('')
 
   const fetchWeather = () => {
