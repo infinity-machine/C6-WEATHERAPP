@@ -8,6 +8,7 @@ const { authMiddleware } = require('./auth');
 
 const app = express();
 
+require('./routes/htmlroutes')(app);
 app.use(express.static(path.join(__dirname, '../client/build')));
 
 async function startServer(typeDefs, resolvers) {
