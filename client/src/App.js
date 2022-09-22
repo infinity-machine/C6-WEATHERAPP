@@ -3,6 +3,7 @@ import { isAuthenticated } from './utils/auth';
 import LogInForm from './components/LogInForm';
 import ForecastNow from './components/ForecastNow';
 import Forecast7Day from './components/Forecast7Day';
+import './index.css';
 
 
 function App() {
@@ -43,27 +44,31 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="container twocolumns">
       {
         user ?
-          <div>
-            <h1>{user.email}</h1>
+          <div className="header tworows">
+            <h2>{user.email}</h2>
             <button onClick={handleLogout}>LOGOUT</button>
           </div> :
           <LogInForm setUser={setUser} />
       }
-      <h1>WEATHERBOI</h1>
-      <form onSubmit={handleLocSubmit}>
-        <input onChange={handleInputChange} value={locInput} type="text" placeholder="LOCATION"></input>
-        <button>GET WEATHER DATA</button>
-      </form>
+      <div>
+        <h1 id="headline">WEATHERBOT</h1>
+        <form onSubmit={handleLocSubmit}>
+          <input onChange={handleInputChange} value={locInput} type="text" placeholder="LOCATION"></input>
+          <button>GET WEATHER DATA</button>
+        </form>
+      </div>
+      <div>
+      </div>
       {
         citySelect ?
-          <ForecastNow city={citySelect} lat={lat} lon={lon} apiKey={apiKey}/> :
-          <p>please make a selection</p>}
+          <ForecastNow city={citySelect} lat={lat} lon={lon} apiKey={apiKey} /> :
+          <p>.....</p>}
       {
         citySelect ?
-          <Forecast7Day city={citySelect} lat={lat} lon={lon} apiKey={apiKey}/> :
+          <Forecast7Day city={citySelect} lat={lat} lon={lon} apiKey={apiKey} /> :
           <></>}
     </div>
   );

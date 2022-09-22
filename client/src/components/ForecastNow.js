@@ -14,6 +14,11 @@ const ForecastNow = (props) => {
       });
   };
 
+  const saveLocation = (e) => {
+    e.preventDefault();
+    console.log('hi')
+  }
+
   useEffect(fetchWeather, [props.lat, props.lon]);
 
   return (
@@ -22,6 +27,9 @@ const ForecastNow = (props) => {
         <div>
           <div>
             <h2>{props.city}</h2>
+            <form onSubmit={saveLocation}>
+              <button>SAVE LOCATION</button>
+            </form>
             <p>TEMPERATURE: {weatherData.temp}</p>
             <p>FEELS LIKE: {weatherData.feels_like}</p>
             <p>HUMIDITY: {weatherData.humidity}</p>
