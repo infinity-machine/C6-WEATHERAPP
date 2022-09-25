@@ -1,16 +1,10 @@
 import React from 'react'
 import { useState } from 'react';
 import { useMutation } from '@apollo/client'
-import { useStore } from '../store';
 import { LOGIN_USER } from '../utils/mutations';
 import { NavLink } from 'react-router-dom';
-// call login user AWAIT const res = loginuser
-// e
-
-// const RES = await loginuser
 
 const LogInForm = (props) => {
-  // const { state: { user }, setState } = useStore();
   const [formInput, setFormInput] = useState({
     email: '',
     password: ''
@@ -39,14 +33,16 @@ const LogInForm = (props) => {
   }
 
   return (
-    <div>
-      {/* {user ? <h1>{user.username}</h1> : <></>} */}
-        <form onSubmit={handleSubmit}>
+    <div className="container twocolumns">
+        <form className="container onecolumn" onSubmit={handleSubmit}>
             <input name="email" type="email" value={formInput.email} placeholder="email" onChange={handleInputChange}></input>
             <input name="password" type="password" value={formInput.password} placeholder="password" onChange={handleInputChange}></input>
-            <button>LOG IN</button>
+            <button className="textleft">LOG IN</button>
         </form>
-        <NavLink to="/register">CREATE ACCOUNT</NavLink>
+        <div>
+          <NavLink to="/register">CREATE ACCOUNT</NavLink>
+        </div>
+        
     </div>
   )
 }

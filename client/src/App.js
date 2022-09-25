@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { isAuthenticated } from './utils/auth';
-import LogInForm from './components/LogInForm';
+import Header from './components/Header'
 import ForecastNow from './components/ForecastNow';
 import Forecast7Day from './components/Forecast7Day';
 import './index.css';
@@ -38,38 +38,29 @@ function App() {
     fetchCoords(e.target[0].value)
   }
 
-  const handleLogout = () => {
-    localStorage.removeItem('token')
-    window.location.reload();
-  }
-
   return (
-    <div className="container twocolumns">
-      {
-        user ?
-          <div className="header tworows">
-            <h2>{user.email}</h2>
-            <button onClick={handleLogout}>LOGOUT</button>
-          </div> :
-          <LogInForm setUser={setUser} />
-      }
-      <div>
-        <h1 id="headline">WEATHERBOT</h1>
-        <form onSubmit={handleLocSubmit}>
-          <input onChange={handleInputChange} value={locInput} type="text" placeholder="LOCATION"></input>
-          <button>GET WEATHER DATA</button>
-        </form>
+    <div className="container">
+      <Header user={user} setUser={setUser} />
+      <div className="container twocolumns">
+        <div>
+          <h1 id="headline">WEATHERBOT</h1>
+          <form onSubmit={handleLocSubmit}>
+            <input onChange={handleInputChange} value={locInput} type="text" placeholder="LOCATION"></input>
+            <button>GET WEATHER DATA</button>
+          </form>
+        </div>
+        <div className="textcenter">
+        {
+          citySelect ?
+            <ForecastNow city={citySelect} lat={lat} lon={lon} apiKey={apiKey} /> :
+            <p>.....</p>
+        }
+        </div>
+        {
+          citySelect ?
+            <Forecast7Day city={citySelect} lat={lat} lon={lon} apiKey={apiKey} /> :
+            <></>}
       </div>
-      <div>
-      </div>
-      {
-        citySelect ?
-          <ForecastNow city={citySelect} lat={lat} lon={lon} apiKey={apiKey} /> :
-          <p>.....</p>}
-      {
-        citySelect ?
-          <Forecast7Day city={citySelect} lat={lat} lon={lon} apiKey={apiKey} /> :
-          <></>}
     </div>
   );
 }
