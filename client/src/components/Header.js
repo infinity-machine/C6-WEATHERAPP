@@ -9,10 +9,10 @@ const Header = (props) => {
   }
 
   return (
-    <div className="header">
+    <div className="margincenter">
       {
         props.user ?
-          <div class="flexcontent">
+          <div>
             <h2>{props.user.email}</h2>
             <button onClick={handleLogout}>LOGOUT</button>
           </div> :

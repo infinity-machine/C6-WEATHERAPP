@@ -1,10 +1,9 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import moment from 'moment';
 
 const Forecast7Day = (props) => {
     const [weatherData, setWeatherData] = useState([])
-    // const [iconURL, setIconURL] = useState('')
-
     const fetchWeather = () => {
         fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${props.lat}&lon=${props.lon}&units=imperial&appid=${props.apiKey}`)
             .then(res => res.json())
@@ -17,8 +16,9 @@ const Forecast7Day = (props) => {
     return (
         <div>
             {weatherData ? weatherData.map((data, index) => {
-                return <div key={index}>
+                return <div key={index} className="centertext">
                     <div>
+                        <p>{moment().add(index, 'days').format('dddd, MMMM Do')}</p>
                         <p>TEMPERATURE - MIN: {data.temp.min} MAX: {data.temp.max}</p>
                         <p>HUMIDITY: {data.humidity}</p>
                         <p>WINDSPEED: {data.wind_speed}</p>

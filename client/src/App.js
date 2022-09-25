@@ -4,6 +4,7 @@ import Header from './components/Header'
 import ForecastNow from './components/ForecastNow';
 import Forecast7Day from './components/Forecast7Day';
 import './index.css';
+import { Button } from '@mui/material';
 
 
 function App() {
@@ -41,26 +42,68 @@ function App() {
   return (
     <div className="container">
       <Header user={user} setUser={setUser} />
-      <div className="container twocolumns">
+      {
+        citySelect ? (
+          <div className="container">
+            <div className="margincenter centertext">
+              <form onSubmit={handleLocSubmit}>
+                <input onChange={handleInputChange} value={locInput} type="text" placeholder="LOCATION"></input>
+                <Button>GET WEATHER DATA</Button>
+              </form>
+            </div>
+            {
+              citySelect ?
+                <ForecastNow city={citySelect} lat={lat} lon={lon} apiKey={apiKey} /> :
+                <p>.....</p>
+            }
+            {
+            citySelect ?
+              <Forecast7Day city={citySelect} lat={lat} lon={lon} apiKey={apiKey} /> :
+              <></>
+          }
+          </div>
+        ) : (
+          <div className="centertext">
+            <h1 id="headline">WEATHERBOT</h1>
+            <div id="icon"></div>
+            <div className="margincenter centertext">
+              <form onSubmit={handleLocSubmit}>
+                <input onChange={handleInputChange} value={locInput} type="text" placeholder="LOCATION"></input>
+                <Button>GET WEATHER DATA</Button>
+              </form>
+            </div>
+          </div>
+        )
+      }
+
+
+
+
+
+
+
+
+
+
+
+      {/* <div>
+
         <div>
-          <h1 id="headline">WEATHERBOT</h1>
-          <form onSubmit={handleLocSubmit}>
-            <input onChange={handleInputChange} value={locInput} type="text" placeholder="LOCATION"></input>
-            <button>GET WEATHER DATA</button>
-          </form>
+          {
+            citySelect ?
+              <ForecastNow city={citySelect} lat={lat} lon={lon} apiKey={apiKey} /> :
+              <p>.....</p>
+          }
+        </div >
+        <div>
+          <h2>WEEKLY FORECAST</h2>
+          {
+            citySelect ?
+              <Forecast7Day city={citySelect} lat={lat} lon={lon} apiKey={apiKey} /> :
+              <></>
+          }
         </div>
-        <div className="textcenter">
-        {
-          citySelect ?
-            <ForecastNow city={citySelect} lat={lat} lon={lon} apiKey={apiKey} /> :
-            <p>.....</p>
-        }
-        </div>
-        {
-          citySelect ?
-            <Forecast7Day city={citySelect} lat={lat} lon={lon} apiKey={apiKey} /> :
-            <></>}
-      </div>
+      </div> */}
     </div>
   );
 }

@@ -14,56 +14,37 @@ body {
   padding: 25px 50px 75px;
 }
 
-.header {
-  padding: 7px 3%;
-  margin-bottom: 30px;
-  background: rgb(210, 135, 135);
+.margincenter {
+  width: 300px;
+  margin: auto;
 }
 
-.flexcontent {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-#headline {
-  font-size: 40px;
-}
 
 .container {
   display: grid;
-}
-
-.onecolumn {
-  grid-template-columns: 100;
 }
 
 .twocolumns {
   grid-template-columns: 50% 50%;
 }
 
-.threecolumns {
-  grid-template-columns: 33% 33% 33%;
+#headline {
+  font-size: 40px;
 }
 
-.fourcolumns {
-  grid-template-columns: 25% 25% 25% 25%;
-}
-
-.tworows {
-  grid-column-start: 1;
-  grid-column-end: 3;
-}
-
-.textright {
-  text-align: right;
-}
-
-.textleft {
-  text-align: left;
-}
-
-.textcenter {
+.centertext {
   text-align: center;
 }
 
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#icon {
+  width: 300px;
+  height:300px;
+  background-color: rgb(70, 70, 160);
+  margin: auto;
+}
