@@ -5,6 +5,7 @@ import ForecastNow from './components/ForecastNow';
 import Forecast7Day from './components/Forecast7Day';
 import './index.css';
 import { Button } from '@mui/material';
+import { NavLink } from 'react-router-dom';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         setLat(data.coord.lat);
         setLon(data.coord.lon);
         setCitySelect(city);
+        setLocInput('')
       });
   }
 
@@ -57,15 +59,16 @@ function App() {
                 <p>.....</p>
             }
             {
-            citySelect ?
-              <Forecast7Day city={citySelect} lat={lat} lon={lon} apiKey={apiKey} /> :
-              <></>
-          }
+              citySelect ?
+                <Forecast7Day city={citySelect} lat={lat} lon={lon} apiKey={apiKey} /> :
+                <></>
+            }
           </div>
         ) : (
           <div className="centertext">
             <h1 id="headline">WEATHERBOT</h1>
-            <div id="icon"></div>
+            <div id="icon">
+            </div>
             <div className="margincenter centertext">
               <form onSubmit={handleLocSubmit}>
                 <input onChange={handleInputChange} value={locInput} type="text" placeholder="LOCATION"></input>
@@ -75,35 +78,9 @@ function App() {
           </div>
         )
       }
-
-
-
-
-
-
-
-
-
-
-
-      {/* <div>
-
-        <div>
-          {
-            citySelect ?
-              <ForecastNow city={citySelect} lat={lat} lon={lon} apiKey={apiKey} /> :
-              <p>.....</p>
-          }
-        </div >
-        <div>
-          <h2>WEEKLY FORECAST</h2>
-          {
-            citySelect ?
-              <Forecast7Day city={citySelect} lat={lat} lon={lon} apiKey={apiKey} /> :
-              <></>
-          }
-        </div>
-      </div> */}
+      <div class="footer centertext">
+        {user ? <></> : <NavLink to="/register">CREATE ACCOUNT</NavLink>}
+      </div>
     </div>
   );
 }

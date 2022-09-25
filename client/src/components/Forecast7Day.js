@@ -19,10 +19,10 @@ const Forecast7Day = (props) => {
                 return <div key={index} className="centertext">
                     <div>
                         <p>{moment().add(index, 'days').format('dddd, MMMM Do')}</p>
-                        <p>TEMPERATURE - MIN: {data.temp.min} MAX: {data.temp.max}</p>
-                        <p>HUMIDITY: {data.humidity}</p>
-                        <p>WINDSPEED: {data.wind_speed}</p>
-                        <p>UV INDEX: {data.uvi}</p>
+                        <p>min: {data.temp.min}&#176;F max: {data.temp.max}&#176;F</p>
+                        <p>humidity: {data.humidity}</p>
+                        <p>windspeed: {data.wind_speed}</p>
+                        <p>uv index: {data.uvi}</p>
                     </div>
                     <img src={`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`} alt="daily weather conditions"></img>
                 </div>

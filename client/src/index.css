@@ -48,3 +48,7 @@ body {
   background-color: rgb(70, 70, 160);
   margin: auto;
 }
+
+.footer {
+  padding-top: 100px;
+}

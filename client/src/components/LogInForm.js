@@ -2,8 +2,6 @@ import React from 'react'
 import { useState } from 'react';
 import { useMutation } from '@apollo/client'
 import { LOGIN_USER } from '../utils/mutations';
-import { NavLink } from 'react-router-dom';
-import { Grid } from '@mui/material';
 
 const LogInForm = (props) => {
   const [formInput, setFormInput] = useState({
@@ -39,11 +37,7 @@ const LogInForm = (props) => {
             <input name="email" type="email" value={formInput.email} placeholder="email" onChange={handleInputChange}></input>
             <input name="password" type="password" value={formInput.password} placeholder="password" onChange={handleInputChange}></input>
             <button>LOG IN</button>
-        </form>
-        <div>
-          <NavLink to="/register">CREATE ACCOUNT</NavLink>
-        </div>
-        
+        </form>   
     </div>
   )
 }

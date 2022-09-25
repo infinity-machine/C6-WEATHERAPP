@@ -30,11 +30,10 @@ const ForecastNow = (props) => {
             <form onSubmit={saveLocation}>
               <button>SAVE LOCATION</button>
             </form>
-            <p>TEMPERATURE: {weatherData.temp}</p>
-            <p>FEELS LIKE: {weatherData.feels_like}</p>
-            <p>HUMIDITY: {weatherData.humidity}</p>
-            <p>WINDSPEED: {weatherData.wind_speed}</p>
-            <p>UV INDEX: {weatherData.uvi}</p>
+            <p>{weatherData.temp}&#176;F - feels like {weatherData.feels_like}&#176;F</p>
+            <p>humidity: {weatherData.humidity}%</p>
+            <p>windspeed: {weatherData.wind_speed}</p>
+            <p>uv index: {weatherData.uvi}</p>
           </div>
           <img src={iconURL} alt="current weather conditions"></img>
         </div>
