@@ -67,8 +67,7 @@ function App() {
         ) : (
           <div className="centertext">
             <h1 id="headline">WEATHERBOT</h1>
-            <div id="icon">
-            </div>
+            <img id="icon" src="assets/clouds.png" alt="pretty cloud"></img>
             <div className="margincenter centertext">
               <form onSubmit={handleLocSubmit}>
                 <input onChange={handleInputChange} value={locInput} type="text" placeholder="LOCATION"></input>
