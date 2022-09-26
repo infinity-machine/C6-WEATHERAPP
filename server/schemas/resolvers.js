@@ -43,6 +43,21 @@ const resolvers = {
             } catch (err) {
                 throw new ApolloError(err);
             }
+        },
+        // HERE WE GO
+        async saveLocation(_, { email, password, location }, context) {
+            const user = await User.findOne()
+
+            if (!user) throw new ApolloError('NO USER FOUND WITH THAT EMAIL');
+
+            if(!user.validatePass(password)) throw new ApolloError('YOUR PASSWORD IS INCORRECT')
+
+            try {
+                user.savedLocs.push(location);
+            } catch(err) {
+                throw new ApolloError(err);
+            }
+
         }
     }
 };

@@ -13,10 +13,7 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
-    // locations: {
-    //     type: [savedLocSchema],
-    //     default: undefined
-    // }
+    savedLocs: [savedLocSchema]
 });
 
 userSchema.pre('save', async function () {

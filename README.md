@@ -1,7 +1,14 @@
-# C6-WEATHERAPP
-weatherbot!!
+# WEATHERBOT!
 
-![WEATHERBOT SCREENSHOT](assets/img/weatherbotscreenshot.png "weatherbot screenshot")
+[![License](https://img.shields.io/badge/License-Apache_2.0-yellowgreen.svg)](https://opensource.org/licenses/Apache-2.0)  
 
 
-tern up
+## ABOUT
+A full stack weather application with authentication.
+
+## QUEESTIONS
+CONNOR CARCIOFINI - DEVELOPER
+https://github.com/infinity-machine
+
+## PROJECT DEPLOYMENT
+[HEROKU](https://cjc-weatherapp.herokuapp.com/)

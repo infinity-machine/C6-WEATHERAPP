@@ -1,7 +1,7 @@
 const User = require('./User');
 const SavedLoc = require('./SavedLoc');
+const savedLocSchema = require('./SavedLoc')
 
 module.exports = {
-    User: require('./User'),
-    SavedLoc: require('./SavedLoc')
+    User, SavedLoc, savedLocSchema
   }

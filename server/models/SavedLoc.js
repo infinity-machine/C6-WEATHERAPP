@@ -16,4 +16,4 @@ const savedLocSchema = new Schema({
 })
 
 const SavedLoc = model('SavedLoc', savedLocSchema);
-module.exports = SavedLoc;
+module.exports = { SavedLoc, savedLocSchema}
