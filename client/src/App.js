@@ -4,7 +4,6 @@ import Header from './components/Header'
 import ForecastNow from './components/ForecastNow';
 import Forecast7Day from './components/Forecast7Day';
 import './index.css';
-import { Button } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 
 
@@ -50,7 +49,7 @@ function App() {
             <div className="margincenter">
               <form onSubmit={handleLocSubmit}>
                 <input onChange={handleInputChange} value={locInput} type="text" placeholder="LOCATION"></input>
-                <Button>GET WEATHER DATA</Button>
+                <button>GET WEATHER DATA</button>
               </form>
             </div>
             {
@@ -71,7 +70,7 @@ function App() {
             <div className="margincenter centertext">
               <form onSubmit={handleLocSubmit}>
                 <input onChange={handleInputChange} value={locInput} type="text" placeholder="LOCATION"></input>
-                <Button>GET WEATHER DATA</Button>
+                <button>GET WEATHER DATA</button>
               </form>
             </div>
           </div>
