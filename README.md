@@ -6,7 +6,7 @@ A full stack weather application with authentication
 [WEATHERBOT IMAGE](./img/screenshot.png)
 
 ## QUESTIONS
-CONNOR CARCIOFINI - DEVELOPER
+CONNOR CARCIOFINI - DEVELOPER @
 https://github.com/infinity-machine
 
 ## PROJECT DEPLOYMENT
