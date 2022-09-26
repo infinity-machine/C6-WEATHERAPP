@@ -22,7 +22,7 @@ const ForecastNow = (props) => {
   useEffect(fetchWeather, [props.lat, props.lon]);
 
   return (
-    <div className="centertext">
+    <div id="weatherbox" className="centertext margincenter">
       {weatherData ? (
         <div>
           <div>

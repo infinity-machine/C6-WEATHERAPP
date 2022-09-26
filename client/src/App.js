@@ -42,12 +42,12 @@ function App() {
   }
 
   return (
-    <div className="container">
+    <div className="container centertext">
       <Header user={user} setUser={setUser} />
       {
         citySelect ? (
-          <div className="container">
-            <div className="margincenter centertext">
+          <div className="container ">
+            <div className="margincenter">
               <form onSubmit={handleLocSubmit}>
                 <input onChange={handleInputChange} value={locInput} type="text" placeholder="LOCATION"></input>
                 <Button>GET WEATHER DATA</Button>

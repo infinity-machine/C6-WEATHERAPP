@@ -15,7 +15,7 @@ const Forecast7Day = (props) => {
 
     useEffect(fetchWeather, [props.lat, props.lon]);
     return (
-        <div>
+        <div id="weatherbox" className="margincenter scroll">
             {weatherData ? weatherData.slice(1).map((data, index) => {
                 return <div key={index} className="centertext">
                     <div>
