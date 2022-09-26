@@ -10,4 +10,4 @@ CONNOR CARCIOFINI - DEVELOPER
 https://github.com/infinity-machine
 
 ## PROJECT DEPLOYMENT
-[HEROKU](https://cjc-weatherapp.herokuapp.com/)
+[WEATHERBOT ON HEROKU](https://cjc-weatherapp.herokuapp.com/)
