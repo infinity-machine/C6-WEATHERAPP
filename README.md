@@ -3,7 +3,7 @@
  
 ## ABOUT
 A full stack weather application with authentication
-[!WEATHERBOT](./img/screenshot.png)
+[WEATHERBOT_IMAGE](./img/screenshot.png)
 
 ## QUESTIONS
 CONNOR CARCIOFINI - DEVELOPER
