@@ -14,14 +14,10 @@ const ForecastHourly = (props) => {
 }
 
 
-// THIS WORKS, BUT THE TIME NEEDS TO BE FORMATTED!!!
-
-
-
 useEffect(fetchWeather, [props.lat, props.lon]);
   return (
     <div id="weatherbox" className="margincenter scroll">
-    {weatherData ? weatherData.slice(1).map((data, index) => {
+    {weatherData ? weatherData.slice(1, 24).map((data, index) => {
         return <div key={index} className="centertext">
             <div>
                 {moment().add(index + 1, 'h').format('LT')}
