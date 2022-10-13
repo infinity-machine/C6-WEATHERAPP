@@ -2,14 +2,19 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 
 const ForecastNow = (props) => {
-  const [weatherData, setWeatherData] = useState([]);
+  const [weatherData, setWeatherData] = useState({});
   const [iconURL, setIconURL] = useState('')
 
   const fetchWeather = () => {
     fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${props.lat}&lon=${props.lon}&units=imperial&appid=${props.apiKey}`)
       .then(res => res.json())
       .then(data => {
-        setWeatherData(data.current)
+        setWeatherData({
+          feels_like: data.current.feels_like,
+          humidity: data.current.humidity,
+          wind_speed: data.current.wind_speed,
+          uvi: data.current.uvi,
+        })
         setIconURL(`https://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png`)
       });
   };

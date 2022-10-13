@@ -8,7 +8,6 @@ const Forecast7Day = (props) => {
         fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${props.lat}&lon=${props.lon}&units=imperial&appid=${props.apiKey}`)
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 setWeatherData(data.daily);
             });
     }

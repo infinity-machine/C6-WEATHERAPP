@@ -3,6 +3,7 @@ import { isAuthenticated } from './utils/auth';
 import Header from './components/Header'
 import ForecastNow from './components/ForecastNow';
 import Forecast7Day from './components/Forecast7Day';
+import ForecastHourly from './components/ForecastHourly';
 import './index.css';
 import { NavLink } from 'react-router-dom';
 
@@ -62,6 +63,11 @@ function App() {
                 <Forecast7Day city={citySelect} lat={lat} lon={lon} apiKey={apiKey} /> :
                 <></>
             }
+            {
+              citySelect ?
+              <ForecastHourly city={citySelect} lat={lat} lon={lon} apiKey={apiKey} /> :
+              <></>
+            }
           </div>
         ) : (
           <div className="centertext">
@@ -76,7 +82,7 @@ function App() {
           </div>
         )
       }
-      <div class="footer centertext">
+      <div className="footer centertext">
         {user ? <></> : <NavLink to="/register">CREATE ACCOUNT</NavLink>}
       </div>
     </div>
