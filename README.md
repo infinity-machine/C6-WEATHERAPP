@@ -3,11 +3,11 @@
  
 ## ABOUT
 A full stack weather application with authentication
-[!WEATHERBOT](./img/screenshot.png)
+[WEATHERBOT IMAGE](./img/screenshot.png)
 
 ## QUESTIONS
-CONNOR CARCIOFINI - DEVELOPER
+CONNOR CARCIOFINI - DEVELOPER @
 https://github.com/infinity-machine
 
 ## PROJECT DEPLOYMENT
-[HEROKU](https://cjc-weatherapp.herokuapp.com/)
+[WEATHERBOT ON HEROKU](https://cjc-weatherapp.herokuapp.com/)
