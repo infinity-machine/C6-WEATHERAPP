@@ -60,13 +60,20 @@ function App() {
             }
             {
               citySelect ?
-                <Forecast7Day city={citySelect} lat={lat} lon={lon} apiKey={apiKey} /> :
+                <div className="centertext">
+                  <h1>HOURLY</h1>
+                  <ForecastHourly city={citySelect} lat={lat} lon={lon} apiKey={apiKey} />
+                </div> 
+                :
                 <></>
             }
             {
               citySelect ?
-              <ForecastHourly city={citySelect} lat={lat} lon={lon} apiKey={apiKey} /> :
-              <></>
+                <div className="centertext">
+                  <h1>Daily</h1>
+                  <Forecast7Day city={citySelect} lat={lat} lon={lon} apiKey={apiKey} />
+                </div> :
+                <></>
             }
           </div>
         ) : (

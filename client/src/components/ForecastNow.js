@@ -37,7 +37,7 @@ const ForecastNow = (props) => {
             </form>
             <p>{weatherData.temp}&#176;F - feels like {weatherData.feels_like}&#176;F</p>
             <p>humidity: {weatherData.humidity}%</p>
-            <p>windspeed: {weatherData.wind_speed}</p>
+            <p>windspeed: {weatherData.wind_speed} mph</p>
             <p>uv index: {weatherData.uvi}</p>
           </div>
           <img src={iconURL} alt="current weather conditions"></img>

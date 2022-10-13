@@ -20,8 +20,8 @@ const Forecast7Day = (props) => {
                     <div>
                         <p>{moment().add(index + 1, 'days').format('dddd, MMMM Do')}</p>
                         <p>high: {data.temp.max}&#176;F - low: {data.temp.min}&#176;F</p>
-                        <p>humidity: {data.humidity}</p>
-                        <p>windspeed: {data.wind_speed}</p>
+                        <p>humidity: {data.humidity}%</p>
+                        <p>windspeed: {data.wind_speed} mph</p>
                         <p>uv index: {data.uvi}</p>
                     </div>
                     <img src={`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`} alt="daily weather conditions"></img>

@@ -22,8 +22,8 @@ useEffect(fetchWeather, [props.lat, props.lon]);
             <div>
                 {moment().add(index + 1, 'h').format('LT')}
                 <p>{data.temp}&#176;F</p>
-                <p>humidity: {data.humidity}</p>
-                <p>windspeed: {data.wind_speed}</p>
+                <p>humidity: {data.humidity}%</p>
+                <p>windspeed: {data.wind_speed} mph</p>
                 <p>uv index: {data.uvi}</p>
             </div>
             <img src={`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`} alt="daily weather conditions"></img>
